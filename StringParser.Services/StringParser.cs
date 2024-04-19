@@ -2,7 +2,7 @@
 
 namespace StringParser.Services;
 
-public class StringParser : IStringParser
+public class StringProcessor : IStringParser
 {
     private const int MaxLength = 15;
     private readonly Dictionary<string, string> _replacements = new ()
