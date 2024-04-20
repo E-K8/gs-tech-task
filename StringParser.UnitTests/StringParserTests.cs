@@ -80,4 +80,21 @@ public class StringParserTests
         // Assert
         result.ShouldBe(expected, $"Input '{input ?? "null"}' should transform to '{expected}' with underscores and number 4 removed.");
     }
+
+     // Test cases to ensure the output is never null or empty
+    [TestCase("____")] 
+    [TestCase("4444")] 
+    [TestCase("")]
+    [TestCase(null)]    
+    public void Parse_ShouldNotReturnNullOrEmptyStrings(string input)
+    {
+        // Arrange
+        var stringParser = new StringProcessor(); 
+
+        // Act
+        var result = stringParser.Parse(input);
+
+        // Assert
+        result.ShouldNotBeNullOrEmpty();
+    }
 }
