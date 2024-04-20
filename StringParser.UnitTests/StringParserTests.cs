@@ -27,4 +27,21 @@ public class StringParserTests
         // Assert
         result.ShouldBe(expected);
     }
+
+      [Test]
+    public void Parse_ReduceContiguousDuplicateCharacters()
+    {
+        // Arrange
+        var stringParser = new StringProcessor(); 
+        var input = "AAAbbCCCCddDDD";
+        var expected = "AbCdD";
+
+        // Act
+        var result = stringParser.Parse(input);
+
+        // Assert
+        result.ShouldBe(expected, "Contiguous duplicate characters should be reduced to a single character in the same case.");
+    }
+
+   
 }
